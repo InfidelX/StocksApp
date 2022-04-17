@@ -8,6 +8,8 @@
 import UIKit
 
 class StockCell: UITableViewCell {
+    
+    static let height: CGFloat = 90
 
     @IBOutlet weak var companyName: UILabel!
     

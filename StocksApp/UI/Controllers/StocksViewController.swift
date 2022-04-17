@@ -8,12 +8,14 @@
 import UIKit
 
 class StocksViewController: UIViewController {
+    
+    //MARK: - Properties
+    private let viewModel = StocksViewModel()
 
     //MARK: - IBOutlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    //MARK: - Properties
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -41,7 +43,7 @@ class StocksViewController: UIViewController {
 extension StocksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return StockCell.height
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
