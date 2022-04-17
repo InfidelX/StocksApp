@@ -31,14 +31,44 @@
                     <view key="view" contentMode="scaleToFill" id="6Qn-mf-mNp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Lkq-v4-Rk2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="brC-UO-lfx" id="mE0-qZ-Jgn"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="l2V-3a-Hcb">
+                                <rect key="frame" x="0.0" y="95" width="414" height="718"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="brC-UO-lfx" id="WaK-lx-4ui"/>
+                                    <outlet property="delegate" destination="brC-UO-lfx" id="1SC-8B-2rs"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rcE-PC-NpU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rcE-PC-NpU" firstAttribute="trailing" secondItem="Lkq-v4-Rk2" secondAttribute="trailing" id="MHb-VO-ok6"/>
+                            <constraint firstItem="Lkq-v4-Rk2" firstAttribute="top" secondItem="rcE-PC-NpU" secondAttribute="top" id="U5M-PB-czE"/>
+                            <constraint firstItem="rcE-PC-NpU" firstAttribute="bottom" secondItem="l2V-3a-Hcb" secondAttribute="bottom" id="VU9-UN-6Qd"/>
+                            <constraint firstItem="rcE-PC-NpU" firstAttribute="trailing" secondItem="l2V-3a-Hcb" secondAttribute="trailing" id="jcq-QC-Ebl"/>
+                            <constraint firstItem="l2V-3a-Hcb" firstAttribute="top" secondItem="Lkq-v4-Rk2" secondAttribute="bottom" id="jjo-Yz-DMn"/>
+                            <constraint firstItem="l2V-3a-Hcb" firstAttribute="leading" secondItem="rcE-PC-NpU" secondAttribute="leading" id="ko5-1S-jtv"/>
+                            <constraint firstItem="Lkq-v4-Rk2" firstAttribute="leading" secondItem="rcE-PC-NpU" secondAttribute="leading" id="qXD-f0-W8z"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Stocks" image="checklist" catalog="system" id="2CO-8b-qk9"/>
+                    <connections>
+                        <outlet property="searchBar" destination="Lkq-v4-Rk2" id="rQx-tC-f2f"/>
+                        <outlet property="tableView" destination="l2V-3a-Hcb" id="PIE-wf-6dJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bp6-Ev-BV6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="-479"/>
+            <point key="canvasLocation" x="1034.7826086956522" y="-479.46428571428567"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2VR-gE-h13">
