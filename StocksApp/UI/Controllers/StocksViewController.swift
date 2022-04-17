@@ -10,7 +10,8 @@ import UIKit
 class StocksViewController: UIViewController {
     
     //MARK: - Properties
-    private let viewModel = StocksViewModel()
+    private let viewModel = StocksViewModel(service: NetworkManager())
+    private var stocks: [Stock]?
 
     //MARK: - IBOutlets
     @IBOutlet weak var searchBar: UISearchBar!
@@ -20,8 +21,8 @@ class StocksViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureTableView()
+        fetchStocks()
     }
 
     
@@ -29,13 +30,20 @@ class StocksViewController: UIViewController {
     
     
     //MARK: - Methods
-    
     private func configureTableView() {
         tableView.register(UINib(nibName: StockCell.identifier, bundle: nil), forCellReuseIdentifier: StockCell.identifier)
     }
     
-    private func configureSearchBar() {
-
+    private func fetchStocks() {
+        viewModel.fetchStocks(completion: { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let stocks):
+                self?.stocks = stocks
+                self?.tableView.reloadData()
+            }
+        })
     }
 }
 
@@ -47,12 +55,18 @@ extension StocksViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        guard let stocks = stocks, stocks.count > 0 else {
+            return 0
+        }
+        return stocks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: StockCell.identifier, for: indexPath) as? StockCell {
+            if let stock = stocks?[indexPath.row] {
+                cell.companyName.text = stock.companyName
+            }
             return cell
         }
         
