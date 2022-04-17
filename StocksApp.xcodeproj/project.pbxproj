@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		777CA4BA280B744B00D3D1F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4B9280B744B00D3D1F1 /* AppDelegate.swift */; };
 		777CA4BC280B744B00D3D1F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4BB280B744B00D3D1F1 /* SceneDelegate.swift */; };
-		777CA4BE280B744B00D3D1F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4BD280B744B00D3D1F1 /* ViewController.swift */; };
+		777CA4BE280B744B00D3D1F1 /* StocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4BD280B744B00D3D1F1 /* StocksViewController.swift */; };
 		777CA4C1280B744B00D3D1F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 777CA4BF280B744B00D3D1F1 /* Main.storyboard */; };
 		777CA4C4280B744B00D3D1F1 /* StocksApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4C2280B744B00D3D1F1 /* StocksApp.xcdatamodeld */; };
 		777CA4C6280B744C00D3D1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777CA4C5280B744C00D3D1F1 /* Assets.xcassets */; };
@@ -20,7 +20,7 @@
 		777CA4B6280B744B00D3D1F1 /* StocksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		777CA4B9280B744B00D3D1F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		777CA4BB280B744B00D3D1F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		777CA4BD280B744B00D3D1F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		777CA4BD280B744B00D3D1F1 /* StocksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksViewController.swift; sourceTree = "<group>"; };
 		777CA4C0280B744B00D3D1F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		777CA4C3280B744B00D3D1F1 /* StocksApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StocksApp.xcdatamodel; sourceTree = "<group>"; };
 		777CA4C5280B744C00D3D1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		77337E39280C839E0090D932 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				777CA4BD280B744B00D3D1F1 /* ViewController.swift */,
+				777CA4BD280B744B00D3D1F1 /* StocksViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -181,7 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777CA4BE280B744B00D3D1F1 /* ViewController.swift in Sources */,
+				777CA4BE280B744B00D3D1F1 /* StocksViewController.swift in Sources */,
 				777CA4BA280B744B00D3D1F1 /* AppDelegate.swift in Sources */,
 				777CA4C4280B744B00D3D1F1 /* StocksApp.xcdatamodeld in Sources */,
 				777CA4BC280B744B00D3D1F1 /* SceneDelegate.swift in Sources */,

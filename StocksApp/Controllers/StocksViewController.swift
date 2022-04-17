@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StocksViewController.swift
 //  StocksApp
 //
 //  Created by Jovancho Jovanovski on 17.4.22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StocksViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
