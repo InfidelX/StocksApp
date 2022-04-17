@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		77337E3F280C886A0090D932 /* MyStocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77337E3E280C886A0090D932 /* MyStocksViewController.swift */; };
+		77337E44280C97AE0090D932 /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77337E42280C97AE0090D932 /* StockCell.swift */; };
+		77337E45280C97AE0090D932 /* StockCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77337E43280C97AE0090D932 /* StockCell.xib */; };
+		77337E49280C99650090D932 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77337E48280C99650090D932 /* Extensions.swift */; };
 		777CA4BA280B744B00D3D1F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4B9280B744B00D3D1F1 /* AppDelegate.swift */; };
 		777CA4BC280B744B00D3D1F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4BB280B744B00D3D1F1 /* SceneDelegate.swift */; };
 		777CA4BE280B744B00D3D1F1 /* StocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4BD280B744B00D3D1F1 /* StocksViewController.swift */; };
@@ -19,6 +22,9 @@
 
 /* Begin PBXFileReference section */
 		77337E3E280C886A0090D932 /* MyStocksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStocksViewController.swift; sourceTree = "<group>"; };
+		77337E42280C97AE0090D932 /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
+		77337E43280C97AE0090D932 /* StockCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockCell.xib; sourceTree = "<group>"; };
+		77337E48280C99650090D932 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		777CA4B6280B744B00D3D1F1 /* StocksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		777CA4B9280B744B00D3D1F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		777CA4BB280B744B00D3D1F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +85,33 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		77337E40280C97730090D932 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				77337E3D280C83E70090D932 /* Storyboards */,
+				77337E39280C839E0090D932 /* Controllers */,
+				77337E41280C97860090D932 /* Cells */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		77337E41280C97860090D932 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				77337E42280C97AE0090D932 /* StockCell.swift */,
+				77337E43280C97AE0090D932 /* StockCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		77337E46280C991E0090D932 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				77337E48280C99650090D932 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		777CA4AD280B744B00D3D1F1 = {
 			isa = PBXGroup;
 			children = (
@@ -100,11 +133,11 @@
 			children = (
 				777CA4B9280B744B00D3D1F1 /* AppDelegate.swift */,
 				777CA4BB280B744B00D3D1F1 /* SceneDelegate.swift */,
-				77337E39280C839E0090D932 /* Controllers */,
+				77337E40280C97730090D932 /* UI */,
 				77337E3B280C83B60090D932 /* ViewModels */,
 				77337E3C280C83E10090D932 /* Models */,
 				77337E3A280C83A90090D932 /* Services */,
-				77337E3D280C83E70090D932 /* Storyboards */,
+				77337E46280C991E0090D932 /* Extensions */,
 				777CA4C5280B744C00D3D1F1 /* Assets.xcassets */,
 				777CA4C7280B744C00D3D1F1 /* LaunchScreen.storyboard */,
 				777CA4CA280B744C00D3D1F1 /* Info.plist */,
@@ -173,6 +206,7 @@
 			files = (
 				777CA4C9280B744C00D3D1F1 /* LaunchScreen.storyboard in Resources */,
 				777CA4C6280B744C00D3D1F1 /* Assets.xcassets in Resources */,
+				77337E45280C97AE0090D932 /* StockCell.xib in Resources */,
 				777CA4C1280B744B00D3D1F1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,9 +220,11 @@
 			files = (
 				777CA4BE280B744B00D3D1F1 /* StocksViewController.swift in Sources */,
 				777CA4BA280B744B00D3D1F1 /* AppDelegate.swift in Sources */,
+				77337E44280C97AE0090D932 /* StockCell.swift in Sources */,
 				777CA4C4280B744B00D3D1F1 /* StocksApp.xcdatamodeld in Sources */,
 				777CA4BC280B744B00D3D1F1 /* SceneDelegate.swift in Sources */,
 				77337E3F280C886A0090D932 /* MyStocksViewController.swift in Sources */,
+				77337E49280C99650090D932 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

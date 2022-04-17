@@ -18,7 +18,8 @@ class StocksViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        configureTableView()
     }
 
     
@@ -26,6 +27,11 @@ class StocksViewController: UIViewController {
     
     
     //MARK: - Methods
+    
+    private func configureTableView() {
+        tableView.register(UINib(nibName: StockCell.identifier, bundle: nil), forCellReuseIdentifier: StockCell.identifier)
+    }
+    
     private func configureSearchBar() {
 
     }
@@ -34,11 +40,20 @@ class StocksViewController: UIViewController {
 //MARK: - UITableViewDelegate
 extension StocksViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: StockCell.identifier, for: indexPath) as? StockCell {
+            return cell
+        }
+        
         return UITableViewCell()
     }
     
