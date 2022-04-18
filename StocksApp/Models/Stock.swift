@@ -18,10 +18,10 @@ struct Stock: Codable {
 //    var isActivelyTrading: Bool?
 //    var isEtf: Bool?
 //    var lastAnnualDividend: String? //Double ?
-//    var marketCap: Int64?
+    var marketCap: Int64?
 //    var price: Double?
 //    var sector: String?
-//    var symbol: String?
+    var symbol: String?
 //    var volume: Int32?
     
 }

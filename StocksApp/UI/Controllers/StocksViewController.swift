@@ -26,7 +26,18 @@ class StocksViewController: UIViewController {
 
     
     //MARK: - IBActions
+    @IBAction func sortAlphabetical(_ sender: Any) {
+        viewModel.sortAlphabetical()
+        tableView.reloadData()
+    }
     
+    @IBAction func sortByMarketCap(_ sender: Any) {
+        viewModel.sortMarketCap()
+        tableView.reloadData()
+    }
+    
+    @IBAction func showAdditionalFilters(_ sender: Any) {
+    }
     
     //MARK: - Methods
     private func configureTableView() {
@@ -54,8 +65,12 @@ extension StocksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if viewModel.isSearchActive, let filtered = viewModel.filteredStocks, filtered.count > 0 {
-            return filtered.count
+        if viewModel.isSearchActive {
+            if let filtered = viewModel.filteredStocks, filtered.count > 0 {
+                return filtered.count
+            } else {
+                return 1
+            }
         }
         
         guard let stocks = viewModel.stocks, stocks.count > 0 else {
@@ -65,23 +80,28 @@ extension StocksViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: StockCell.identifier, for: indexPath) as? StockCell {
-            
-            if viewModel.isSearchActive, let filtered = viewModel.filteredStocks, filtered.count > 0 {
+
+        if viewModel.isSearchActive {
+            if let filtered = viewModel.filteredStocks, filtered.count > 0 {
                 if let stock = viewModel.filteredStocks?[indexPath.row] {
-                    cell.companyName.text = stock.companyName
+                    return StockCell.configureCell(tableView: tableView, indexPath: indexPath, stock: stock)
                 }
+            } else {
+                let cell = UITableViewCell()
+                cell.textLabel?.text = "No stocks found"
                 return cell
             }
             
+        } else {
+        
             if let stock = viewModel.stocks?[indexPath.row] {
-                cell.companyName.text = stock.companyName
+                return StockCell.configureCell(tableView: tableView, indexPath: indexPath, stock: stock)
             }
-            return cell
         }
         
-        return UITableViewCell()
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "No stocks found"
+        return cell
     }
     
 }
