@@ -42,10 +42,7 @@ class NetworkManager: NetworkService {
                 return
             }
 
-            guard
-                let data = data,
-                let httpResponse = response as? HTTPURLResponse,
-                200 ..< 300 ~= httpResponse.statusCode
+            guard let data = data, let httpResponse = response as? HTTPURLResponse, 200 ... 299 ~= httpResponse.statusCode
             else {
                 queue.async { completion(.failure(StocksError.invalidResponse(response))) }
                 return

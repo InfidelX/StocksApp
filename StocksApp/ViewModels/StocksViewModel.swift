@@ -7,16 +7,20 @@
 
 import Foundation
 
-class StocksViewModel {
+protocol StocksViewModel {
+    func fetchStocks(completion: @escaping (Result<[Stock], Error>) -> Void)
+}
+
+class StocksService: StocksViewModel {
     
-    var service: NetworkService!
+    private let networkService: NetworkService!
     
-    required init(service: NetworkService?) {
-        self.service = service
+    required init(networkService: NetworkService?) {
+        self.networkService = networkService
     }
     
     func fetchStocks(completion: @escaping (Result<[Stock], Error>) -> Void) {
-        service.getStocks() { result in
+        networkService.getStocks() { result in
             completion(result)
         }
     }

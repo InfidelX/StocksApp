@@ -10,7 +10,7 @@ import UIKit
 class StocksViewController: UIViewController {
     
     //MARK: - Properties
-    private let viewModel = StocksViewModel(service: NetworkManager())
+    private let viewModel: StocksViewModel = StocksService(networkService: NetworkManager())
     private var stocks: [Stock]?
 
     //MARK: - IBOutlets
