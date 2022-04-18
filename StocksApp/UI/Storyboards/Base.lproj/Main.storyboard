@@ -40,24 +40,46 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="l2V-3a-Hcb">
-                                <rect key="frame" x="0.0" y="95" width="414" height="718"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="brC-UO-lfx" id="WaK-lx-4ui"/>
                                     <outlet property="delegate" destination="brC-UO-lfx" id="1SC-8B-2rs"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcI-zW-4hZ">
+                                <rect key="frame" x="20" y="105" width="80" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sort A-Z"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qh-2b-Zss">
+                                <rect key="frame" x="337" y="105" width="57" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Filter"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XxE-W7-OgT">
+                                <rect key="frame" x="110" y="105" width="147" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sort by market cap"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rcE-PC-NpU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="XxE-W7-OgT" firstAttribute="centerY" secondItem="qcI-zW-4hZ" secondAttribute="centerY" id="5KI-SM-3aO"/>
                             <constraint firstItem="rcE-PC-NpU" firstAttribute="trailing" secondItem="Lkq-v4-Rk2" secondAttribute="trailing" id="MHb-VO-ok6"/>
+                            <constraint firstItem="qcI-zW-4hZ" firstAttribute="leading" secondItem="rcE-PC-NpU" secondAttribute="leading" constant="20" id="Ml1-7X-LDg"/>
+                            <constraint firstItem="2Qh-2b-Zss" firstAttribute="centerY" secondItem="XxE-W7-OgT" secondAttribute="centerY" id="O9p-9n-5Dj"/>
                             <constraint firstItem="Lkq-v4-Rk2" firstAttribute="top" secondItem="rcE-PC-NpU" secondAttribute="top" id="U5M-PB-czE"/>
                             <constraint firstItem="rcE-PC-NpU" firstAttribute="bottom" secondItem="l2V-3a-Hcb" secondAttribute="bottom" id="VU9-UN-6Qd"/>
+                            <constraint firstItem="l2V-3a-Hcb" firstAttribute="top" secondItem="qcI-zW-4hZ" secondAttribute="bottom" constant="8" symbolic="YES" id="aGU-sy-Q1j"/>
+                            <constraint firstItem="rcE-PC-NpU" firstAttribute="trailing" secondItem="2Qh-2b-Zss" secondAttribute="trailing" constant="20" id="dM5-TJ-7f4"/>
+                            <constraint firstItem="XxE-W7-OgT" firstAttribute="leading" secondItem="qcI-zW-4hZ" secondAttribute="trailing" priority="250" constant="10" id="f2h-AN-tAd"/>
                             <constraint firstItem="rcE-PC-NpU" firstAttribute="trailing" secondItem="l2V-3a-Hcb" secondAttribute="trailing" id="jcq-QC-Ebl"/>
-                            <constraint firstItem="l2V-3a-Hcb" firstAttribute="top" secondItem="Lkq-v4-Rk2" secondAttribute="bottom" id="jjo-Yz-DMn"/>
+                            <constraint firstItem="l2V-3a-Hcb" firstAttribute="top" secondItem="Lkq-v4-Rk2" secondAttribute="bottom" constant="49" id="jjo-Yz-DMn"/>
                             <constraint firstItem="l2V-3a-Hcb" firstAttribute="leading" secondItem="rcE-PC-NpU" secondAttribute="leading" id="ko5-1S-jtv"/>
                             <constraint firstItem="Lkq-v4-Rk2" firstAttribute="leading" secondItem="rcE-PC-NpU" secondAttribute="leading" id="qXD-f0-W8z"/>
+                            <constraint firstItem="qcI-zW-4hZ" firstAttribute="top" secondItem="Lkq-v4-Rk2" secondAttribute="bottom" constant="10" id="zvP-fX-gJC"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Stocks" image="timeline_black" id="2CO-8b-qk9"/>

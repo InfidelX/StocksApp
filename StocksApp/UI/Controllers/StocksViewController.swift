@@ -10,8 +10,7 @@ import UIKit
 class StocksViewController: UIViewController {
     
     //MARK: - Properties
-    private let viewModel: StocksViewModel = StocksService(networkService: NetworkManager())
-    private var stocks: [Stock]?
+    private var viewModel: StocksViewModel = StocksService(networkService: NetworkManager())
 
     //MARK: - IBOutlets
     @IBOutlet weak var searchBar: UISearchBar!
@@ -35,13 +34,12 @@ class StocksViewController: UIViewController {
     }
     
     private func fetchStocks() {
-        viewModel.fetchStocks(completion: { [weak self] result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let stocks):
-                self?.stocks = stocks
+        
+        viewModel.fetchStocks(success: {  [weak self] result in
+            if result {
                 self?.tableView.reloadData()
+            } else {
+                //TODO: show no data message
             }
         })
     }
@@ -55,7 +53,12 @@ extension StocksViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let stocks = stocks, stocks.count > 0 else {
+        
+        if viewModel.isSearchActive, let filtered = viewModel.filteredStocks, filtered.count > 0 {
+            return filtered.count
+        }
+        
+        guard let stocks = viewModel.stocks, stocks.count > 0 else {
             return 0
         }
         return stocks.count
@@ -64,7 +67,15 @@ extension StocksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: StockCell.identifier, for: indexPath) as? StockCell {
-            if let stock = stocks?[indexPath.row] {
+            
+            if viewModel.isSearchActive, let filtered = viewModel.filteredStocks, filtered.count > 0 {
+                if let stock = viewModel.filteredStocks?[indexPath.row] {
+                    cell.companyName.text = stock.companyName
+                }
+                return cell
+            }
+            
+            if let stock = viewModel.stocks?[indexPath.row] {
                 cell.companyName.text = stock.companyName
             }
             return cell
@@ -90,10 +101,17 @@ extension StocksViewController: UISearchBarDelegate {
         searchBar.searchTextField.text = ""
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
+        viewModel.searchStocksBy(string: searchBar.searchTextField.text ?? "")
+        tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.searchStocksBy(string: searchText)
+        tableView.reloadData()
     }
     
 }
