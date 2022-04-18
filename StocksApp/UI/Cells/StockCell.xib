@@ -24,23 +24,33 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Market Cap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZw-qT-Oyq">
-                        <rect key="frame" x="216" y="78" width="88" height="21"/>
+                        <rect key="frame" x="16" y="35" width="88" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVb-Rf-M5M">
+                        <rect key="frame" x="207.5" y="79" width="112.5" height="31"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Add to my list"/>
+                        <connections>
+                            <action selector="storeStock:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qy3-VA-wt4"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="GVb-Rf-M5M" secondAttribute="trailing" id="0Ng-YK-XFh"/>
+                    <constraint firstAttribute="bottom" secondItem="GVb-Rf-M5M" secondAttribute="bottom" id="2vv-yI-up5"/>
                     <constraint firstItem="rnC-dS-sQm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="B0t-Tc-lzJ"/>
-                    <constraint firstItem="WZw-qT-Oyq" firstAttribute="leading" secondItem="rnC-dS-sQm" secondAttribute="trailing" priority="250" constant="119" id="BAL-gw-KC7"/>
-                    <constraint firstAttribute="bottom" secondItem="WZw-qT-Oyq" secondAttribute="bottom" constant="11" id="gFG-MA-H6s"/>
+                    <constraint firstItem="WZw-qT-Oyq" firstAttribute="top" secondItem="rnC-dS-sQm" secondAttribute="bottom" constant="8" symbolic="YES" id="LYv-jC-aJn"/>
+                    <constraint firstItem="WZw-qT-Oyq" firstAttribute="leading" secondItem="rnC-dS-sQm" secondAttribute="leading" id="OSN-mc-VYY"/>
                     <constraint firstItem="rnC-dS-sQm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="sYF-Fk-fC2"/>
-                    <constraint firstAttribute="trailing" secondItem="WZw-qT-Oyq" secondAttribute="trailing" constant="16" id="xvd-Fd-UKl"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addButton" destination="GVb-Rf-M5M" id="7K5-L0-HMO"/>
                 <outlet property="companyName" destination="rnC-dS-sQm" id="nkO-7E-gY9"/>
                 <outlet property="marketCap" destination="WZw-qT-Oyq" id="0W7-h6-tHD"/>
             </connections>

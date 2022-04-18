@@ -8,26 +8,21 @@
 import Foundation
 
 protocol StocksViewModel {
-
     var stocks: [Stock]? { get }
-    var filteredStocks: [Stock]? { get }
-    var isSearchActive: Bool { get set }
     
     func fetchStocks(success: @escaping (Bool) -> Void)
     func sortAlphabetical()
     func sortMarketCap()
     func searchStocksBy(string: String )
-
 }
 
 class StocksService: StocksViewModel {
     
     private let networkService: NetworkService!
     
-    var stocks: [Stock]?
-    var filteredStocks: [Stock]?
-    var isSearchActive: Bool = false
-    
+    private var initialStocks: [Stock]?
+    public var stocks: [Stock]?
+
     required init(networkService: NetworkService?) {
         self.networkService = networkService
     }
@@ -38,43 +33,30 @@ class StocksService: StocksViewModel {
             case .failure(_):
                 success(false)
             case .success(let stocks):
+                self.initialStocks = stocks
                 self.stocks = stocks
                 success(true)
             }
-            
         }
     }
 
     func searchStocksBy(string: String ) {
         
-        guard string != "", let stocks = stocks else {
-            isSearchActive = false
-            return
-        }
+        guard string != "", let stocks = initialStocks else { return }
         
-        isSearchActive = true
-
-        filteredStocks = stocks.filter({
+        self.stocks = stocks.filter({
             
-            guard let name = $0.companyName else {
-                return false
-            }
+            guard let name = $0.companyName else { return false }
             
             return name.starts(with: string)
             
         })
-//        print("filteredStocks: \(String(describing: filteredStocks?.count))")
-
-//        isSearchActive = filteredStocks?.count ?? 0 > 0
-        
     }
     
     func sortAlphabetical()  {
-        guard let sortedStocks = stocks else {
-            return
-        }
+        guard let sortedStocks = stocks else { return }
         
-        stocks = sortedStocks.sorted(by:  {
+        stocks = sortedStocks.sorted(by: {
             guard let company0 = $0.companyName, let company1 = $1.companyName else {
                 return false
             }
@@ -83,11 +65,9 @@ class StocksService: StocksViewModel {
     }
     
     func sortMarketCap() {
-        guard let sortedStocks = stocks else {
-            return
-        }
+        guard let sortedStocks = stocks else { return }
         
-        stocks = sortedStocks.sorted(by:  {
+        stocks = sortedStocks.sorted(by: {
             guard let cap0 = $0.marketCap, let cap1 = $1.marketCap else {
                 return false
             }

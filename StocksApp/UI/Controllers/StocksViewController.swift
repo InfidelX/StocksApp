@@ -65,43 +65,37 @@ extension StocksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if viewModel.isSearchActive {
-            if let filtered = viewModel.filteredStocks, filtered.count > 0 {
-                return filtered.count
-            } else {
-                return 1
-            }
-        }
+//        if viewModel.isSearchActive {
+//            if let filtered = viewModel.filteredStocks, filtered.count > 0 {
+//                return filtered.count
+//            } else {
+//                return 1
+//            }
+//        }
         
-        guard let stocks = viewModel.stocks, stocks.count > 0 else {
-            return 0
-        }
-        return stocks.count
+        return viewModel.stocks?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if viewModel.isSearchActive {
-            if let filtered = viewModel.filteredStocks, filtered.count > 0 {
-                if let stock = viewModel.filteredStocks?[indexPath.row] {
-                    return StockCell.configureCell(tableView: tableView, indexPath: indexPath, stock: stock)
-                }
-            } else {
-                let cell = UITableViewCell()
-                cell.textLabel?.text = "No stocks found"
-                return cell
-            }
-            
+//        if viewModel.isSearchActive {
+//            if let filtered = viewModel.filteredStocks, filtered.count > 0 {
+//                return StockCell.configureCell(tableView: tableView, indexPath: indexPath, delegate: self, stock: viewModel.filteredStocks?[indexPath.row])
+//            } else {
+//                let cell = UITableViewCell()
+//                cell.textLabel?.text = "No stocks found"
+//                return cell
+//            }
+//
+//        } else {
+        if let stocks = viewModel.stocks, stocks.count > 0 {
+            return StockCell.configureCell(tableView: tableView, indexPath: indexPath, delegate: self, stock: stocks[indexPath.row])
         } else {
-        
-            if let stock = viewModel.stocks?[indexPath.row] {
-                return StockCell.configureCell(tableView: tableView, indexPath: indexPath, stock: stock)
-            }
+            let cell = UITableViewCell()
+            cell.textLabel?.text = "No stocks found"
+            return cell
         }
-        
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "No stocks found"
-        return cell
+//        }
     }
     
 }
@@ -125,13 +119,19 @@ extension StocksViewController: UISearchBarDelegate {
         tableView.reloadData()
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.searchStocksBy(string: searchText)
         tableView.reloadData()
+    }
+    
+}
+
+//MARK: - StoreStockDelegate
+extension StocksViewController: StoreStockDelegate {
+    
+    func storeStock(at index: Int) {
+        // add storing logic to view model
+        print("storeStock at: \(index)")
     }
     
 }
