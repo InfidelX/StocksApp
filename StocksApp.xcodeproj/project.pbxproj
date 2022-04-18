@@ -22,6 +22,7 @@
 		777CA4C4280B744B00D3D1F1 /* StocksApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4C2280B744B00D3D1F1 /* StocksApp.xcdatamodeld */; };
 		777CA4C6280B744C00D3D1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777CA4C5280B744C00D3D1F1 /* Assets.xcassets */; };
 		777CA4C9280B744C00D3D1F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 777CA4C7280B744C00D3D1F1 /* LaunchScreen.storyboard */; };
+		778AF066280E09E600FC66D0 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778AF065280E09E600FC66D0 /* DatabaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		777CA4C5280B744C00D3D1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		777CA4C8280B744C00D3D1F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		777CA4CA280B744C00D3D1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		778AF065280E09E600FC66D0 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				77337E4E280CBBA80090D932 /* NetworkService.swift */,
+				778AF065280E09E600FC66D0 /* DatabaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				777CA4BA280B744B00D3D1F1 /* AppDelegate.swift in Sources */,
 				77337E44280C97AE0090D932 /* StockCell.swift in Sources */,
 				77337E4B280CB61E0090D932 /* StocksViewModel.swift in Sources */,
+				778AF066280E09E600FC66D0 /* DatabaseService.swift in Sources */,
 				777CA4C4280B744B00D3D1F1 /* StocksApp.xcdatamodeld in Sources */,
 				777CA4BC280B744B00D3D1F1 /* SceneDelegate.swift in Sources */,
 				77337E3F280C886A0090D932 /* MyStocksViewController.swift in Sources */,

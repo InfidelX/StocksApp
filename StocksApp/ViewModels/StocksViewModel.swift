@@ -5,41 +5,47 @@
 //  Created by Jovancho Jovanovski on 17.4.22.
 //
 
-import Foundation
+import UIKit
 
-protocol StocksViewModel {
+protocol StocksViewModel: AnyObject {
     var stocks: [Stock]? { get }
     
-    func fetchStocks(success: @escaping (Bool) -> Void)
+    func fetchStocks(completion: @escaping (Bool) -> Void)
     func sortAlphabetical()
     func sortMarketCap()
     func searchStocksBy(string: String )
+    
+    func storeStock(at index: Int, completion: @escaping (StoreResult) -> Void)
 }
 
 class StocksService: StocksViewModel {
-    
+
     private let networkService: NetworkService!
+    private let databaseService: DatabaseService!
     
     private var initialStocks: [Stock]?
     public var stocks: [Stock]?
 
-    required init(networkService: NetworkService?) {
+    required init(networkService: NetworkService, databaseService: DatabaseService) {
         self.networkService = networkService
+        self.databaseService = databaseService
     }
     
-    func fetchStocks(success: @escaping (Bool) -> Void) {
+    //MARK: Networking
+    func fetchStocks(completion: @escaping (Bool) -> Void) {
         networkService.getStocks() { result in
             switch result {
             case .failure(_):
-                success(false)
+                completion(false)
             case .success(let stocks):
                 self.initialStocks = stocks
                 self.stocks = stocks
-                success(true)
+                completion(true)
             }
         }
     }
 
+    //MARK: Search
     func searchStocksBy(string: String ) {
         
         guard string != "", let stocks = initialStocks else { return }
@@ -53,6 +59,7 @@ class StocksService: StocksViewModel {
         })
     }
     
+    //MARK: Sorting
     func sortAlphabetical()  {
         guard let sortedStocks = stocks else { return }
         
@@ -73,6 +80,34 @@ class StocksService: StocksViewModel {
             }
             return cap0 < cap1
         })
+    }
+    
+    //MARK: Storing
+    func storeStock(at index: Int, completion: @escaping (StoreResult) -> Void) {
+        let localStocks = databaseService.getStocks()
+        if let stocks = stocks {
+            let symbol = stocks[index].symbol
+            if let localStocks = localStocks, localStocks.contains(where: { $0.symbol == symbol }) {
+                completion(.contains)
+            } else {
+                databaseService.save(stock: stocks[index])
+                completion(.success)
+            }
+        } else {
+            completion(.failure)
+        }
+
+    }
+}
+
+extension StocksViewModel {
+    
+    //MARK: Presentation
+    func showAlert(title: String, message: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        return alert
     }
     
 }
