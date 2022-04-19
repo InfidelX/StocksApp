@@ -82,8 +82,14 @@ extension MyStocksViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MyStocksViewController{
-    private func openNewsForStock(at: Int) {
+    private func openNewsForStock(at index: Int) {
+        
+        guard let stocks = viewModel.localStocks, let symbol = stocks[index].symbol else {
+            return
+        }
+        
         let root = StockNewsViewController()
+        root.stockSymbol = symbol
         let navController = UINavigationController(rootViewController: root)
         self.present(navController, animated: true, completion: nil)
     }

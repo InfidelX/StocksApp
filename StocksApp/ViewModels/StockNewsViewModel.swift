@@ -8,22 +8,30 @@
 import Foundation
 
 protocol StockNewsViewModel: AnyObject {
-    var news: [Stock]? { get }
+    var news: [StockNews]? { get }
     
-    func fetchStockNews(completion: @escaping (Bool) -> Void)
+    func fetchStockNews(stockSymbol: String, completion: @escaping (Bool) -> Void)
 }
 
 class StockNewsService: StockNewsViewModel {
     
     private let networkService: NetworkService!
     
-    var news: [Stock]?
+    var news: [StockNews]?
     
     required init(networkService: NetworkService) {
         self.networkService = networkService
     }
     
-    func fetchStockNews(completion: @escaping (Bool) -> Void) {
-        
+    func fetchStockNews(stockSymbol: String, completion: @escaping (Bool) -> Void) {
+        networkService.getStocksNews(stockSymbol: stockSymbol, completion:  { result in
+            switch result {
+            case .failure(_):
+                completion(false)
+            case .success(let news):
+                self.news = news
+                completion(true)
+            }
+        })
     }
 }
