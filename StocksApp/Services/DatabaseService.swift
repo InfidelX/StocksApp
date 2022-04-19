@@ -68,6 +68,7 @@ class DBManager: DatabaseService  {
 
 }
 
+// MARK: - Core Data Operations
 extension DBManager {
 
     func save(stock: Stock) {
@@ -104,14 +105,12 @@ extension DBManager {
             // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             let nserror = error as NSError
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            
-            return nil
         }
-        
     }
     
 }
 
+//MARK: - Model Conversions
 extension DBManager {
  
     func convertStocks(objects: [CDStock]) -> [Stock] {
