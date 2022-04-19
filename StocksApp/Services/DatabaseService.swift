@@ -10,7 +10,7 @@ import CoreData
 
 protocol DatabaseService {
     func save(stock: Stock)
-    func delete(stock: Stock)
+    func delete(stock: Stock, completion: @escaping (Bool) -> Void)
     func getStocks() -> [Stock]?
 }
 
@@ -73,7 +73,8 @@ extension DBManager {
 
     func save(stock: Stock) {
         let context = persistentContainer.viewContext
-        let localStock = CDStock(context: context)
+        let entity = NSEntityDescription.entity(forEntityName: "CDStock", in: context)!
+        let localStock = CDStock(entity: entity, insertInto: context)
 
         localStock.companyName = stock.companyName
         localStock.marketCap = stock.marketCap ?? 0
@@ -82,8 +83,25 @@ extension DBManager {
         saveContext()
     }
     
-    func delete(stock: Stock) {
+    func delete(stock: Stock, completion: @escaping (Bool) -> Void) {
         
+        let context = persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<CDStock>
+        fetchRequest = CDStock.fetchRequest()
+
+        
+        do {
+            let objects = try context.fetch(fetchRequest)
+            if let localStock = objects.first(where: { $0.symbol == stock.symbol }) {
+                context.delete(localStock)
+                completion(true)
+                saveContext()
+            }
+        } catch {
+            completion(false)
+        }
+       
     }
     
     func getStocks() -> [Stock]? {
@@ -98,7 +116,6 @@ extension DBManager {
         // Fetch all objects of one Entity type
         do {
             let objects = try context.fetch(fetchRequest)
-            print("core data objects: \(objects.count)")
             return convertStocks(objects: objects)
         } catch {
             // Replace this implementation with code to handle the error appropriately.

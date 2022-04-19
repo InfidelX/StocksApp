@@ -11,6 +11,7 @@ protocol MyStocksViewModel: AnyObject {
     var localStocks: [Stock]? { get }
     
     func fetchLocalStocks(completion: @escaping (Bool) -> Void)
+    func deleteLocalStock(at index: Int, completion: @escaping (Bool) -> Void)
 }
 
 class MyStocksService: MyStocksViewModel {
@@ -26,6 +27,18 @@ class MyStocksService: MyStocksViewModel {
     func fetchLocalStocks(completion: @escaping (Bool) -> Void) {
         localStocks = databaseService.getStocks()
         completion(localStocks?.count ?? 0 > 0 ? true : false)
+    }
+    
+    func deleteLocalStock(at index: Int, completion: @escaping (Bool) -> Void) {
+        
+        if let localStocks = localStocks {
+            databaseService.delete(stock: localStocks[index], completion: { [weak self] result in
+                self?.localStocks = self?.databaseService.getStocks()
+                completion(result)
+            })
+        } else {
+            completion(false)
+        }
     }
     
 }

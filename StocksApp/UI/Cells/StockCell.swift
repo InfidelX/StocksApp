@@ -25,7 +25,6 @@ class StockCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,7 +36,8 @@ class StockCell: UITableViewCell {
     static func configureCell(tableView: UITableView,
                               indexPath: IndexPath,
                               delegate: StoreStockDelegate?,
-                              stock: Stock?) -> StockCell {
+                              stock: Stock?,
+                              isFromMyStocks: Bool = false) -> StockCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: StockCell.identifier, for: indexPath) as? StockCell {
             
             guard let stock = stock else {
@@ -54,14 +54,26 @@ class StockCell: UITableViewCell {
             
             cell.addButton.tag = indexPath.row
             
+            if isFromMyStocks {
+                cell.addButton.setTitle("Delete", for: .normal)
+                cell.addButton.addTarget(cell, action: #selector(deleteStock), for: .touchUpInside)
+            } else {
+                cell.addButton.setTitle("Add to my list", for: .normal)
+                cell.addButton.addTarget(cell, action: #selector(storeStock), for: .touchUpInside)
+            }
+            
             return cell
         }
         
         return StockCell()
     }
     
-    @IBAction func storeStock(_ sender: UIButton) {
+    @objc func storeStock(_ sender: UIButton) {
         delegate?.storeStock?(at: sender.tag)
+    }
+    
+    @objc func deleteStock(_ sender: UIButton) {
+        delegate?.deleteStock?(at: sender.tag)
     }
     
 }

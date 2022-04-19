@@ -57,16 +57,47 @@ extension MyStocksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if let stocks = viewModel.localStocks, stocks.count > 0 {
-            return StockCell.configureCell(tableView: tableView, indexPath: indexPath, delegate: self, stock: stocks[indexPath.row])
+            return StockCell.configureCell(tableView: tableView, indexPath: indexPath, delegate: self, stock: stocks[indexPath.row], isFromMyStocks: true)
         }
         
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        openNewsForStock(at: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return UISwipeActionsConfiguration(actions: [
+            UIContextualAction(style: .destructive, title: "Delete") { (action, swipeButtonView, completion) in
+                completion(true)
+            }
+        ])
+    }
+    
+}
+
+extension MyStocksViewController{
+    private func openNewsForStock(at: Int) {
+        
+    }
 }
 
 extension MyStocksViewController: StoreStockDelegate {
     func deleteStock(at index: Int) {
-        
+        viewModel.deleteLocalStock(at: index, completion: { [weak self] result in
+            
+            self?.tableView.reloadData()
+            
+            if self?.viewModel.localStocks?.count == 0 {
+                self?.emptyStateLabel.isHidden = false
+                self?.tableView.isHidden = true
+            }
+            
+        })
     }
 }
