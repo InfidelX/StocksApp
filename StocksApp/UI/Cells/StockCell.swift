@@ -7,9 +7,11 @@
 
 import UIKit
 
-protocol StoreStockDelegate: AnyObject {
-    func storeStock(at index: Int)
+@objc protocol StoreStockDelegate: AnyObject {
+    @objc optional func storeStock(at index: Int)
+    @objc optional func deleteStock(at index: Int)
 }
+
 
 class StockCell: UITableViewCell {
     
@@ -59,7 +61,7 @@ class StockCell: UITableViewCell {
     }
     
     @IBAction func storeStock(_ sender: UIButton) {
-        delegate?.storeStock(at: sender.tag)
+        delegate?.storeStock?(at: sender.tag)
     }
     
 }

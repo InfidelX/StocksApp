@@ -10,12 +10,11 @@ import UIKit
 class StocksViewController: UIViewController {
     
     //MARK: - Properties
-    private var viewModel: StocksViewModel = StocksService(networkService: NetworkManager(), databaseService: DBManager())
+    private let viewModel: StocksViewModel = StocksService(networkService: NetworkManager(), databaseService: DBManager())
 
     //MARK: - IBOutlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -46,9 +45,9 @@ class StocksViewController: UIViewController {
     
     private func fetchStocks() {
         
-        viewModel.fetchStocks(completion: {  [weak self] result in
+        viewModel.fetchStocks(completion: { result in
             if result {
-                self?.tableView.reloadData()
+                self.tableView.reloadData()
             } else {
                 //TODO: show no data message
             }

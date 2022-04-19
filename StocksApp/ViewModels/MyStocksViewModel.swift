@@ -8,6 +8,8 @@
 import Foundation
 
 protocol MyStocksViewModel: AnyObject {
+    var localStocks: [Stock]? { get }
+    
     func fetchLocalStocks(completion: @escaping (Bool) -> Void)
 }
 
@@ -23,6 +25,7 @@ class MyStocksService: MyStocksViewModel {
     
     func fetchLocalStocks(completion: @escaping (Bool) -> Void) {
         localStocks = databaseService.getStocks()
+        completion(localStocks?.count ?? 0 > 0 ? true : false)
     }
     
 }

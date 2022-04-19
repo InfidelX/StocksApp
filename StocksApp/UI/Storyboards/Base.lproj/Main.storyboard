@@ -15,14 +15,42 @@
                     <view key="view" contentMode="scaleToFill" id="c6D-Kt-kFT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No saved stocks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRd-fN-Ow8">
+                                <rect key="frame" x="144.5" y="418" width="125" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xkW-RX-0RB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qDL-gD-dZ8" id="b99-Rc-u7x"/>
+                                    <outlet property="delegate" destination="qDL-gD-dZ8" id="aRh-Xh-UC3"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Trf-qr-pig"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xkW-RX-0RB" firstAttribute="leading" secondItem="Trf-qr-pig" secondAttribute="leading" id="3ns-WJ-Hwx"/>
+                            <constraint firstItem="xkW-RX-0RB" firstAttribute="top" secondItem="Trf-qr-pig" secondAttribute="top" id="TJ4-Lh-rlw"/>
+                            <constraint firstItem="qRd-fN-Ow8" firstAttribute="centerX" secondItem="Trf-qr-pig" secondAttribute="centerX" id="TJT-Pz-ciC"/>
+                            <constraint firstItem="xkW-RX-0RB" firstAttribute="trailing" secondItem="Trf-qr-pig" secondAttribute="trailing" id="faC-RR-wfb"/>
+                            <constraint firstItem="qRd-fN-Ow8" firstAttribute="centerY" secondItem="Trf-qr-pig" secondAttribute="centerY" id="oBM-Ec-fY4"/>
+                            <constraint firstItem="xkW-RX-0RB" firstAttribute="bottom" secondItem="Trf-qr-pig" secondAttribute="bottom" id="vPH-36-jxc"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Stocks" image="checkmark.seal" catalog="system" id="oJS-Cj-oGV"/>
+                    <connections>
+                        <outlet property="emptyStateLabel" destination="qRd-fN-Ow8" id="M5E-vk-tYz"/>
+                        <outlet property="tableView" destination="xkW-RX-0RB" id="DUA-gQ-6kc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imX-Pn-q1K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1035" y="452"/>
+            <point key="canvasLocation" x="1034.7826086956522" y="451.33928571428567"/>
         </scene>
         <!--Stocks-->
         <scene sceneID="sGb-TD-bA7">
@@ -78,6 +106,7 @@
                             <constraint firstItem="XxE-W7-OgT" firstAttribute="centerY" secondItem="qcI-zW-4hZ" secondAttribute="centerY" id="5KI-SM-3aO"/>
                             <constraint firstItem="rcE-PC-NpU" firstAttribute="trailing" secondItem="Lkq-v4-Rk2" secondAttribute="trailing" id="MHb-VO-ok6"/>
                             <constraint firstItem="qcI-zW-4hZ" firstAttribute="leading" secondItem="rcE-PC-NpU" secondAttribute="leading" constant="20" id="Ml1-7X-LDg"/>
+                            <constraint firstItem="2Qh-2b-Zss" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XxE-W7-OgT" secondAttribute="trailing" constant="8" symbolic="YES" id="Nv6-vK-TfT"/>
                             <constraint firstItem="2Qh-2b-Zss" firstAttribute="centerY" secondItem="XxE-W7-OgT" secondAttribute="centerY" id="O9p-9n-5Dj"/>
                             <constraint firstItem="Lkq-v4-Rk2" firstAttribute="top" secondItem="rcE-PC-NpU" secondAttribute="top" id="U5M-PB-czE"/>
                             <constraint firstItem="rcE-PC-NpU" firstAttribute="bottom" secondItem="l2V-3a-Hcb" secondAttribute="bottom" id="VU9-UN-6Qd"/>
