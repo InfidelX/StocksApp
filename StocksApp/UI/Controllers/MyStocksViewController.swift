@@ -83,7 +83,9 @@ extension MyStocksViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MyStocksViewController{
     private func openNewsForStock(at: Int) {
-        
+        let root = StockNewsViewController()
+        let navController = UINavigationController(rootViewController: root)
+        self.present(navController, animated: true, completion: nil)
     }
 }
 

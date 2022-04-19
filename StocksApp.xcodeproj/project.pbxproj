@@ -16,6 +16,9 @@
 		77337E4F280CBBA80090D932 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77337E4E280CBBA80090D932 /* NetworkService.swift */; };
 		77337E51280CCF840090D932 /* StocksError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77337E50280CCF840090D932 /* StocksError.swift */; };
 		775A3B94280F422D00AFFBCC /* MyStocksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775A3B93280F422D00AFFBCC /* MyStocksViewModel.swift */; };
+		775A3B97280F610400AFFBCC /* StockNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775A3B95280F610400AFFBCC /* StockNewsViewController.swift */; };
+		775A3B98280F610400AFFBCC /* StockNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 775A3B96280F610400AFFBCC /* StockNewsViewController.xib */; };
+		775A3B9E280F640200AFFBCC /* StockNewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775A3B9D280F640200AFFBCC /* StockNewsViewModel.swift */; };
 		777CA4BA280B744B00D3D1F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4B9280B744B00D3D1F1 /* AppDelegate.swift */; };
 		777CA4BC280B744B00D3D1F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4BB280B744B00D3D1F1 /* SceneDelegate.swift */; };
 		777CA4BE280B744B00D3D1F1 /* StocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4BD280B744B00D3D1F1 /* StocksViewController.swift */; };
@@ -36,6 +39,9 @@
 		77337E4E280CBBA80090D932 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		77337E50280CCF840090D932 /* StocksError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksError.swift; sourceTree = "<group>"; };
 		775A3B93280F422D00AFFBCC /* MyStocksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStocksViewModel.swift; sourceTree = "<group>"; };
+		775A3B95280F610400AFFBCC /* StockNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockNewsViewController.swift; sourceTree = "<group>"; };
+		775A3B96280F610400AFFBCC /* StockNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockNewsViewController.xib; sourceTree = "<group>"; };
+		775A3B9D280F640200AFFBCC /* StockNewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockNewsViewModel.swift; sourceTree = "<group>"; };
 		777CA4B6280B744B00D3D1F1 /* StocksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		777CA4B9280B744B00D3D1F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		777CA4BB280B744B00D3D1F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +70,8 @@
 			children = (
 				777CA4BD280B744B00D3D1F1 /* StocksViewController.swift */,
 				77337E3E280C886A0090D932 /* MyStocksViewController.swift */,
+				775A3B95280F610400AFFBCC /* StockNewsViewController.swift */,
+				775A3B96280F610400AFFBCC /* StockNewsViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -82,6 +90,7 @@
 			children = (
 				77337E4A280CB61E0090D932 /* StocksViewModel.swift */,
 				775A3B93280F422D00AFFBCC /* MyStocksViewModel.swift */,
+				775A3B9D280F640200AFFBCC /* StockNewsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -226,6 +235,7 @@
 				777CA4C6280B744C00D3D1F1 /* Assets.xcassets in Resources */,
 				77337E45280C97AE0090D932 /* StockCell.xib in Resources */,
 				777CA4C1280B744B00D3D1F1 /* Main.storyboard in Resources */,
+				775A3B98280F610400AFFBCC /* StockNewsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +251,9 @@
 				777CA4BE280B744B00D3D1F1 /* StocksViewController.swift in Sources */,
 				777CA4BA280B744B00D3D1F1 /* AppDelegate.swift in Sources */,
 				77337E44280C97AE0090D932 /* StockCell.swift in Sources */,
+				775A3B9E280F640200AFFBCC /* StockNewsViewModel.swift in Sources */,
 				775A3B94280F422D00AFFBCC /* MyStocksViewModel.swift in Sources */,
+				775A3B97280F610400AFFBCC /* StockNewsViewController.swift in Sources */,
 				77337E4B280CB61E0090D932 /* StocksViewModel.swift in Sources */,
 				778AF066280E09E600FC66D0 /* DatabaseService.swift in Sources */,
 				777CA4C4280B744B00D3D1F1 /* StocksApp.xcdatamodeld in Sources */,
