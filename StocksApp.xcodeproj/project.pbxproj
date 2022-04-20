@@ -22,6 +22,10 @@
 		775A3BA0280F64F600AFFBCC /* StockNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775A3B9F280F64F600AFFBCC /* StockNews.swift */; };
 		775A3BA3280F68E200AFFBCC /* StockNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775A3BA1280F68E200AFFBCC /* StockNewsCell.swift */; };
 		775A3BA4280F68E200AFFBCC /* StockNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 775A3BA2280F68E200AFFBCC /* StockNewsCell.xib */; };
+		775A3BA9280F73CA00AFFBCC /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775A3BA7280F73CA00AFFBCC /* FiltersViewController.swift */; };
+		775A3BAA280F73CA00AFFBCC /* FiltersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 775A3BA8280F73CA00AFFBCC /* FiltersViewController.xib */; };
+		775A3BAD280F750000AFFBCC /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775A3BAB280F750000AFFBCC /* FilterCell.swift */; };
+		775A3BAE280F750000AFFBCC /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 775A3BAC280F750000AFFBCC /* FilterCell.xib */; };
 		777CA4BA280B744B00D3D1F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4B9280B744B00D3D1F1 /* AppDelegate.swift */; };
 		777CA4BC280B744B00D3D1F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4BB280B744B00D3D1F1 /* SceneDelegate.swift */; };
 		777CA4BE280B744B00D3D1F1 /* StocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CA4BD280B744B00D3D1F1 /* StocksViewController.swift */; };
@@ -30,6 +34,7 @@
 		777CA4C6280B744C00D3D1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777CA4C5280B744C00D3D1F1 /* Assets.xcassets */; };
 		777CA4C9280B744C00D3D1F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 777CA4C7280B744C00D3D1F1 /* LaunchScreen.storyboard */; };
 		778AF066280E09E600FC66D0 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778AF065280E09E600FC66D0 /* DatabaseService.swift */; };
+		77929651280F877F00DBABDF /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77929650280F877F00DBABDF /* FiltersViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +53,10 @@
 		775A3B9F280F64F600AFFBCC /* StockNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockNews.swift; sourceTree = "<group>"; };
 		775A3BA1280F68E200AFFBCC /* StockNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockNewsCell.swift; sourceTree = "<group>"; };
 		775A3BA2280F68E200AFFBCC /* StockNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockNewsCell.xib; sourceTree = "<group>"; };
+		775A3BA7280F73CA00AFFBCC /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		775A3BA8280F73CA00AFFBCC /* FiltersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltersViewController.xib; sourceTree = "<group>"; };
+		775A3BAB280F750000AFFBCC /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		775A3BAC280F750000AFFBCC /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 		777CA4B6280B744B00D3D1F1 /* StocksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		777CA4B9280B744B00D3D1F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		777CA4BB280B744B00D3D1F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +67,7 @@
 		777CA4C8280B744C00D3D1F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		777CA4CA280B744C00D3D1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		778AF065280E09E600FC66D0 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		77929650280F877F00DBABDF /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,10 +84,8 @@
 		77337E39280C839E0090D932 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				777CA4BD280B744B00D3D1F1 /* StocksViewController.swift */,
-				77337E3E280C886A0090D932 /* MyStocksViewController.swift */,
-				775A3B95280F610400AFFBCC /* StockNewsViewController.swift */,
-				775A3B96280F610400AFFBCC /* StockNewsViewController.xib */,
+				775A3BA5280F739700AFFBCC /* Stock */,
+				775A3BA6280F73A600AFFBCC /* Common */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -97,6 +105,7 @@
 				77337E4A280CB61E0090D932 /* StocksViewModel.swift */,
 				775A3B93280F422D00AFFBCC /* MyStocksViewModel.swift */,
 				775A3B9D280F640200AFFBCC /* StockNewsViewModel.swift */,
+				77929650280F877F00DBABDF /* FiltersViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -136,6 +145,8 @@
 				77337E43280C97AE0090D932 /* StockCell.xib */,
 				775A3BA1280F68E200AFFBCC /* StockNewsCell.swift */,
 				775A3BA2280F68E200AFFBCC /* StockNewsCell.xib */,
+				775A3BAB280F750000AFFBCC /* FilterCell.swift */,
+				775A3BAC280F750000AFFBCC /* FilterCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -146,6 +157,26 @@
 				77337E48280C99650090D932 /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		775A3BA5280F739700AFFBCC /* Stock */ = {
+			isa = PBXGroup;
+			children = (
+				777CA4BD280B744B00D3D1F1 /* StocksViewController.swift */,
+				77337E3E280C886A0090D932 /* MyStocksViewController.swift */,
+				775A3B95280F610400AFFBCC /* StockNewsViewController.swift */,
+				775A3B96280F610400AFFBCC /* StockNewsViewController.xib */,
+			);
+			path = Stock;
+			sourceTree = "<group>";
+		};
+		775A3BA6280F73A600AFFBCC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				775A3BA7280F73CA00AFFBCC /* FiltersViewController.swift */,
+				775A3BA8280F73CA00AFFBCC /* FiltersViewController.xib */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		777CA4AD280B744B00D3D1F1 = {
@@ -241,9 +272,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				777CA4C9280B744C00D3D1F1 /* LaunchScreen.storyboard in Resources */,
+				775A3BAA280F73CA00AFFBCC /* FiltersViewController.xib in Resources */,
 				777CA4C6280B744C00D3D1F1 /* Assets.xcassets in Resources */,
 				77337E45280C97AE0090D932 /* StockCell.xib in Resources */,
 				775A3BA4280F68E200AFFBCC /* StockNewsCell.xib in Resources */,
+				775A3BAE280F750000AFFBCC /* FilterCell.xib in Resources */,
 				777CA4C1280B744B00D3D1F1 /* Main.storyboard in Resources */,
 				775A3B98280F610400AFFBCC /* StockNewsViewController.xib in Resources */,
 			);
@@ -256,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				775A3BAD280F750000AFFBCC /* FilterCell.swift in Sources */,
 				77337E4F280CBBA80090D932 /* NetworkService.swift in Sources */,
 				77337E51280CCF840090D932 /* StocksError.swift in Sources */,
 				777CA4BE280B744B00D3D1F1 /* StocksViewController.swift in Sources */,
@@ -269,9 +303,11 @@
 				778AF066280E09E600FC66D0 /* DatabaseService.swift in Sources */,
 				777CA4C4280B744B00D3D1F1 /* StocksApp.xcdatamodeld in Sources */,
 				775A3BA0280F64F600AFFBCC /* StockNews.swift in Sources */,
+				77929651280F877F00DBABDF /* FiltersViewModel.swift in Sources */,
 				777CA4BC280B744B00D3D1F1 /* SceneDelegate.swift in Sources */,
 				77337E3F280C886A0090D932 /* MyStocksViewController.swift in Sources */,
 				77337E49280C99650090D932 /* Extensions.swift in Sources */,
+				775A3BA9280F73CA00AFFBCC /* FiltersViewController.swift in Sources */,
 				77337E4D280CBB330090D932 /* Stock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

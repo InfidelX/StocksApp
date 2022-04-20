@@ -11,7 +11,7 @@ struct Stock: Codable {
     
 //    var beta: Double?
     var companyName: String?
-//    var country: String?
+    var country: String?
 //    var exchange: String?
 //    var exchangeShortName: String?
 //    var industry: String?

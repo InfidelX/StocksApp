@@ -8,12 +8,14 @@
 import UIKit
 
 protocol StocksViewModel: AnyObject {
+    var allStocks: [Stock]? { get }
     var stocks: [Stock]? { get }
     
     func fetchStocks(completion: @escaping (Bool) -> Void)
     func sortAlphabetical()
     func sortMarketCap()
     func searchStocksBy(string: String )
+    func filterStocksByCountry(codes: [String], completion: @escaping (Bool) -> Void)
     
     func storeStock(at index: Int, completion: @escaping (StoreResult) -> Void)
 }
@@ -23,8 +25,8 @@ class StocksService: StocksViewModel {
     private let networkService: NetworkService!
     private let databaseService: DatabaseService!
     
-    private var initialStocks: [Stock]?
-    public var stocks: [Stock]?
+    var allStocks: [Stock]?
+    var stocks: [Stock]?
 
     required init(networkService: NetworkService, databaseService: DatabaseService) {
         self.networkService = networkService
@@ -38,7 +40,7 @@ class StocksService: StocksViewModel {
             case .failure(_):
                 completion(false)
             case .success(let stocks):
-                self.initialStocks = stocks
+                self.allStocks = stocks
                 self.stocks = stocks
                 completion(true)
             }
@@ -48,7 +50,7 @@ class StocksService: StocksViewModel {
     //MARK: Search
     func searchStocksBy(string: String ) {
         
-        guard string != "", let stocks = initialStocks else { return }
+        guard string != "", let stocks = allStocks else { return }
         
         self.stocks = stocks.filter({
             
@@ -96,8 +98,32 @@ class StocksService: StocksViewModel {
         } else {
             completion(.failure)
         }
-
     }
+    
+    //MARK: Filters
+    func filterStocksByCountry(codes: [String], completion: @escaping (Bool) -> Void) {
+        
+        guard let stocks = allStocks else { return }
+        
+        var result = [Stock]()
+        
+        var temp = [Stock]()
+        
+        for code in codes {
+            temp = stocks.filter({
+                
+                guard let name = $0.country else { return false }
+                
+                return name == code
+                
+            })
+            result.append(contentsOf: temp)
+        }
+        self.stocks = result
+        completion(true)
+    }
+
+
 }
 
 extension StocksViewModel {

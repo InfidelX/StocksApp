@@ -36,6 +36,19 @@ class StocksViewController: UIViewController {
     }
     
     @IBAction func showAdditionalFilters(_ sender: Any) {
+        let filtersViewController = FiltersViewController(nibName: "FiltersViewController", bundle: nil)
+        filtersViewController.delegate = self
+        if let stocks = viewModel.allStocks {
+            let countries = stocks.map{ (stock) -> String in
+                guard let country = stock.country else {
+                    return ""
+                }
+                return country
+            }
+            filtersViewController.countryCodes = countries.removingDuplicates()
+        }
+
+        present(filtersViewController, animated: true, completion: nil)
     }
     
     //MARK: - Methods
@@ -121,5 +134,14 @@ extension StocksViewController: StoreStockDelegate {
         })
     }
     
+}
+
+//MARK: - CountryCodesDelegate
+extension StocksViewController: CountryCodesDelegate {
+    func didSelect(codes: [String]) {
+        viewModel.filterStocksByCountry(codes: codes) { [weak self] result in
+            self?.tableView.reloadData()
+        }
+    }
 }
 

@@ -19,38 +19,31 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bvq-Z2-rgx">
-                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <items>
-                        <navigationItem title="News" id="aSh-zJ-6jT">
-                            <barButtonItem key="rightBarButtonItem" image="xmark.app" catalog="system" style="done" id="fjP-un-SbE">
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <action selector="close:" destination="-1" id="saA-vw-dvi"/>
-                                </connections>
-                            </barButtonItem>
-                        </navigationItem>
-                    </items>
-                </navigationBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pCz-LM-ugE">
-                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bvq-Z2-rgx">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="News" id="aSh-zJ-6jT"/>
+                    </items>
+                </navigationBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="pCz-LM-ugE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="3k2-a8-dFr"/>
+                <constraint firstItem="pCz-LM-ugE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="3k2-a8-dFr"/>
                 <constraint firstItem="pCz-LM-ugE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Uu1-WC-VOt"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pCz-LM-ugE" secondAttribute="trailing" id="fkx-CN-vih"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pCz-LM-ugE" secondAttribute="bottom" id="hwy-XV-mJd"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="131.8840579710145" y="75.669642857142847"/>
         </view>
     </objects>
     <resources>
-        <image name="xmark.app" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
