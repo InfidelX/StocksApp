@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FiltersViewController" customModule="StocksApp" customModuleProvider="target">
             <connections>
+                <outlet property="navBar" destination="Qee-RW-dfS" id="LNF-hf-CA1"/>
                 <outlet property="tableView" destination="QaE-Hn-wk8" id="erA-00-co0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,7 +28,20 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
-                        <navigationItem title="Countries" id="3pJ-xY-XOT"/>
+                        <navigationItem title="Countries" id="3pJ-xY-XOT">
+                            <barButtonItem key="leftBarButtonItem" title="Clear" id="zJf-xb-47h">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="clearFilters:" destination="-1" id="RYA-Pu-F7X"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="Done" id="fIx-uj-YWp">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="applyFilters:" destination="-1" id="vHk-LB-5eU"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
                     </items>
                 </navigationBar>
             </subviews>

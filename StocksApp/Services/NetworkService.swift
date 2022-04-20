@@ -29,6 +29,7 @@ class NetworkManager: NetworkService {
     
     let session = URLSession(configuration: .ephemeral, delegate: nil, delegateQueue: OperationQueue.main)
 
+    //MARK: - Stocks
     func getStocks(completion: @escaping (Result<[Stock], Error>) -> Void) {
         let queue = DispatchQueue.main
 
@@ -60,7 +61,7 @@ class NetworkManager: NetworkService {
         }.resume()
     }
     
-    
+    //MARK: - Stocks News
     func getStocksNews(stockSymbol: String, completion: @escaping (Result<[StockNews], Error>) -> Void) {
         let queue = DispatchQueue.main
 

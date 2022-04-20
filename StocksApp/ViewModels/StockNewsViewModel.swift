@@ -23,6 +23,7 @@ class StockNewsService: StockNewsViewModel {
         self.networkService = networkService
     }
     
+    //MARK: - Networking
     func fetchStockNews(stockSymbol: String, completion: @escaping (Bool) -> Void) {
         networkService.getStocksNews(stockSymbol: stockSymbol, completion:  { result in
             switch result {

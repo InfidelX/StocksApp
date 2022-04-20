@@ -21,6 +21,7 @@ class FiltersService: FiltersViewModel {
         self.selectedItems = selectedItems
     }
     
+    //MARK: - Filter selection
     func selectItem(at index: Int) {
         selectedItems.append(index)
     }

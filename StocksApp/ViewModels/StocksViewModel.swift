@@ -9,7 +9,7 @@ import UIKit
 
 protocol StocksViewModel: AnyObject {
     var allStocks: [Stock]? { get }
-    var stocks: [Stock]? { get }
+    var stocks: [Stock]? { get set }
     
     func fetchStocks(completion: @escaping (Bool) -> Void)
     func sortAlphabetical()
@@ -33,7 +33,7 @@ class StocksService: StocksViewModel {
         self.databaseService = databaseService
     }
     
-    //MARK: Networking
+    //MARK: - Networking
     func fetchStocks(completion: @escaping (Bool) -> Void) {
         networkService.getStocks() { result in
             switch result {
@@ -47,7 +47,7 @@ class StocksService: StocksViewModel {
         }
     }
 
-    //MARK: Search
+    //MARK: - Search
     func searchStocksBy(string: String ) {
         
         guard string != "", let stocks = allStocks else { return }
@@ -61,7 +61,7 @@ class StocksService: StocksViewModel {
         })
     }
     
-    //MARK: Sorting
+    //MARK: - Sorting
     func sortAlphabetical()  {
         guard let sortedStocks = stocks else { return }
         
@@ -84,7 +84,7 @@ class StocksService: StocksViewModel {
         })
     }
     
-    //MARK: Storing
+    //MARK: - Storing
     func storeStock(at index: Int, completion: @escaping (StoreResult) -> Void) {
         let localStocks = databaseService.getStocks()
         if let stocks = stocks {
@@ -100,7 +100,7 @@ class StocksService: StocksViewModel {
         }
     }
     
-    //MARK: Filters
+    //MARK: - Filters
     func filterStocksByCountry(codes: [String], completion: @escaping (Bool) -> Void) {
         
         guard let stocks = allStocks else { return }
@@ -128,7 +128,7 @@ class StocksService: StocksViewModel {
 
 extension StocksViewModel {
     
-    //MARK: Presentation
+    //MARK: - Presentation
     func showAlert(title: String, message: String) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)

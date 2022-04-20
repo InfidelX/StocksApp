@@ -138,10 +138,16 @@ extension StocksViewController: StoreStockDelegate {
 
 //MARK: - CountryCodesDelegate
 extension StocksViewController: CountryCodesDelegate {
+    
     func didSelect(codes: [String]) {
         viewModel.filterStocksByCountry(codes: codes) { [weak self] result in
             self?.tableView.reloadData()
         }
+    }
+    
+    func didClearFilter() {
+        viewModel.stocks = viewModel.allStocks
+        self.tableView.reloadData()
     }
 }
 

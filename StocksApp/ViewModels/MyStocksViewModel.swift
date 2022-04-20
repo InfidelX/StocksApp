@@ -24,13 +24,13 @@ class MyStocksService: MyStocksViewModel {
         self.databaseService = databaseService
     }
     
+    //MARK: - Database access
     func fetchLocalStocks(completion: @escaping (Bool) -> Void) {
         localStocks = databaseService.getStocks()
         completion(localStocks?.count ?? 0 > 0 ? true : false)
     }
     
     func deleteLocalStock(at index: Int, completion: @escaping (Bool) -> Void) {
-        
         if let localStocks = localStocks {
             databaseService.delete(stock: localStocks[index], completion: { [weak self] result in
                 self?.localStocks = self?.databaseService.getStocks()

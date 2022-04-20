@@ -9,6 +9,7 @@ import UIKit
 
 protocol CountryCodesDelegate: AnyObject {
     func didSelect(codes: [String])
+    func didClearFilter()
 }
 
 class FiltersViewController: UIViewController {
@@ -20,25 +21,12 @@ class FiltersViewController: UIViewController {
     weak var delegate: CountryCodesDelegate?
     
     //MARK: - IBOutlets
+    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        let codes = viewModel.selectedItems.map({ (index) -> String in
-            guard let countryCodes = countryCodes else {
-                return ""
-            }
-
-            return countryCodes[index]
-        })
-
-        if !codes.isEmpty {
-            delegate?.didSelect(codes: codes)
-        }
     }
 
     //MARK: - Methods
@@ -51,6 +39,27 @@ class FiltersViewController: UIViewController {
         
         tableView.register(UINib(nibName: FilterCell.identifier, bundle: nil), forCellReuseIdentifier: FilterCell.identifier)
     }
+    
+    @IBAction func applyFilters(_ sender: Any) {
+        let codes = viewModel.selectedItems.map({ (index) -> String in
+            guard let countryCodes = countryCodes else {
+                return ""
+            }
+
+            return countryCodes[index]
+        })
+
+        if !codes.isEmpty {
+            delegate?.didSelect(codes: codes)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func clearFilters(_ sender: Any) {
+        delegate?.didClearFilter()
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 //MARK: - UITableViewDelegate
